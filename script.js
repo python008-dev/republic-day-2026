@@ -1,11 +1,3 @@
-// ====================================
-// Republic Day Website - JavaScript
-// Interactive Features & Functionality
-// ====================================
-
-// ====================================
-// Global Variables & Data
-// ====================================
 
 // Patriotic Quotes
 const patrioticQuotes = [
