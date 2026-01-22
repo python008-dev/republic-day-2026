@@ -647,10 +647,10 @@ function generateCard() {
     
     // Beautiful greeting messages
     const greetings = [
-        `🇮🇳 Dear ${userName}, as we celebrate the spirit of our great nation, may the values of unity and freedom guide your path.`,
+        ` Dear ${userName}, as we celebrate the spirit of our great nation, may the values of unity and freedom guide your path.`,
         `Wishing you a glorious Republic Day, ${userName}! Let the tricolour inspire you to be a better citizen every day.`,
         `${userName}, on this auspicious day, let's pledge to build a stronger, united India together!`,
-        `Celebrating the constitution and democracy with you, ${userName}! Happy Republic Day! 🇮🇳`,
+        `Celebrating the constitution and democracy with you, ${userName}! Happy Republic Day! `,
         `${userName}, may the courage of our freedom fighters inspire your journey towards excellence.`
     ];
     
@@ -665,7 +665,7 @@ function generateCard() {
     }
     
     if (cardSlogan) {
-        cardSlogan.innerHTML = `<strong>${slogan}</strong> 🇮🇳`;
+        cardSlogan.innerHTML = `<strong>${slogan}</strong> `;
     }
     
     // Enable download button
