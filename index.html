@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Republic Day of India  | Celebrating the Spirit of India</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- Fixed Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span> Republic Day</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#history" class="nav-link">History of India</a></li>
+                <li><a href="#freedom-fighters" class="nav-link">Freedom Fighters</a></li>
+                <li><a href="national-heroes.html" class="nav-link">National Heroes</a></li>
+                <li><a href="#flag-ceremony" class="nav-link">Flag Ceremony </a></li>
+                <li><a href="#ecard" class="nav-link">E-Card Generator</a></li>
+                <li><a href="#constitution" class="nav-link">Constitution</a></li>
+                <li><a href="#quiz" class="nav-link">Republic Day Quiz</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section home-section">
+        <div class="hero-container">
+            <h1 class="hero-heading">Celebrating the Spirit of India </h1>
+            <p class="hero-subheading">Unity • Sacrifice • Constitution • Freedom</p>
+            <div class="tricolour-wave"></div>
+            <button class="btn-primary" onclick="scrollToSection('flag-ceremony')">
+                Start Celebration
+            </button>
+        </div>
+
+        <div class="quick-actions">
+            <button class="action-btn" onclick="scrollToSection('flag-ceremony')">
+                <span class="btn-icon">INDIA</span>
+                <span>Unfurl National Flag</span>
+            </button>
+            <button class="action-btn" onclick="scrollToSection('history')">
+                <span class="btn-icon">📜</span>
+                <span>Know India's History</span>
+            </button>
+            <button class="action-btn" onclick="scrollToSection('freedom-fighters')">
+                <span class="btn-icon">🦁</span>
+                <span>Freedom Fighters</span>
+            </button>
+            <button class="action-btn" onclick="scrollToSection('ecard')">
+                <span class="btn-icon">💌</span>
+                <span>Create E-Card</span>
+            </button>
+        </div>
+
+        <div class="significance-box">
+            <h2>Today's Significance</h2>
+            <p id="todaySignificance"></p>
+        </div>
+
+        <div class="quote-section">
+            <h2>Quote of the Day</h2>
+            <div class="quote-box">
+                <p id="quoteText" class="quote-text"></p>
+                <button class="btn-secondary" id="nextQuoteBtn">Next Quote</button>
+            </div>
+        </div>
+
+        <div class="constitution-snapshot">
+            <h2>Constitution Snapshot</h2>
+            <div class="snapshot-content">
+                <div class="snapshot-item">
+                    <h3>Fundamental Right</h3>
+                    <p id="fundamentalRight"></p>
+                </div>
+                <div class="snapshot-item">
+                    <h3>Fundamental Duty</h3>
+                    <p id="fundamentalDuty"></p>
+                </div>
+            </div>
+            <button class="btn-secondary" onclick="scrollToSection('constitution')">Learn More</button>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="section history-section">
+        <div class="container">
+            <h2 class="section-title">History of India</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Ancient India</h3>
+                        <p>India's civilization dates back over 5,000 years, with the Indus Valley Civilization being one of the world's oldest. The Vedic period, Mauryan Empire, and Gupta Empire marked golden ages of science, mathematics, philosophy, and art.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Medieval India</h3>
+                        <p>The medieval period saw the rise of various dynasties including the Delhi Sultanate and the Mughal Empire. This era contributed significantly to India's cultural diversity, architecture, and administrative systems.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>British Rule</h3>
+                        <p>Starting from the 18th century, the British East India Company gradually established control over India. By 1858, India came under direct British Crown rule, leading to economic exploitation and social changes.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Freedom Struggle</h3>
+                        <p>The Indian independence movement gained momentum in the late 19th and early 20th centuries. Leaders like Mahatma Gandhi, Bhagat Singh, Subhas Chandra Bose, and countless others led the fight for freedom through various methods.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Independence (1947)</h3>
+                        <p>After decades of struggle, India gained independence on August 15, 1947. The nation was partitioned into India and Pakistan, marking the end of British colonial rule and the beginning of a new era.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Republic of India (1950)</h3>
+                        <p>On January 26, 1950, India adopted its Constitution, becoming a sovereign, socialist, secular, and democratic republic. Dr. B.R. Ambedkar, the chief architect of the Constitution, ensured it reflected the values of justice, liberty, equality, and fraternity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Freedom Fighters Section -->
+    <section id="freedom-fighters" class="section freedom-fighters-section">
+        <div class="container">
+            <h2 class="section-title">Freedom Fighters & national heroes</h2>
+            <div class="fighters-grid" id="fightersGrid">
+                <!-- Cards will be generated by JavaScript -->
+            </div>
+            <div class="explore-heroes-container">
+                <a href="national-heroes.html" class="btn-explore-heroes">
+                    Click here to explore our nation builders
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Freedom Fighter Modal -->
+    <div id="fighterModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Flag Ceremony Section -->
+    <section id="flag-ceremony" class="section flag-ceremony-section">
+        <div class="container">
+            <h2 class="section-title">Flag Ceremony</h2>
+            <div class="flag-container">
+                <div class="flag-pole">
+                    <div class="pole-base"></div>
+                    <div class="pole-shaft"></div>
+                    <div class="pole-top"></div>
+                </div>
+                <div class="flag-wrapper" id="flagWrapper">
+                    <div class="flag" id="indianFlag">
+                        <div class="flag-stripe saffron"></div>
+                        <div class="flag-stripe white">
+                            <div class="ashoka-chakra" id="ashokaChakra">
+                                <div class="chakra-spokes"></div>
+                            </div>
+                        </div>
+                        <div class="flag-stripe green"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ceremony-controls">
+                <button class="btn-primary" id="unfurlBtn" onclick="unfurlFlag()">
+                    Unfurl the National Flag
+                </button>
+                <div id="anthemControls" class="anthem-controls" style="display: none;">
+                    <p class="anthem-message">Please stand in respect for the National Anthem of India 🇮🇳</p>
+                    <audio id="nationalAnthem" controls>
+                        <source src="assets/freedom-fighters/National_Anthem.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+            <div id="confettiContainer" class="confetti-container"></div>
+        </div>
+    </section>
+
+    <!-- E-Card Generator Section -->
+    <section id="ecard" class="section ecard-section">
+        <div class="container">
+            <h2 class="section-title">E-Card Generator</h2>
+            <div class="ecard-wrapper">
+                <div class="ecard-form">
+                    <h3>Create Your Republic Day Card</h3>
+                    <div class="form-group">
+                        <label for="userName">Your Name *</label>
+                        <input type="text" id="userName" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userMessage">Your Message</label>
+                        <textarea id="userMessage" rows="4" placeholder="Write your message here..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="sloganSelect">Choose a Slogan</label>
+                        <select id="sloganSelect">
+                            <option value="Vande Mataram">Vande Mataram</option>
+                            <option value="Jai Hind">Jai Hind</option>
+                            <option value="Satyameva Jayate">Satyameva Jayate</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary" id="generateCardBtn" onclick="generateCard()">
+                        Generate Card
+                    </button>
+                </div>
+                <div class="ecard-preview" id="ecardPreview">
+                    <div class="ecard" id="generatedCard">
+                        <div class="ecard-background"></div>
+                        <div class="ecard-content">
+                            <h2 class="ecard-title">Happy Republic Day</h2>
+                            <div class="ecard-chakra">
+                                <div class="rotating-chakra"></div>
+                            </div>
+                            <p class="ecard-name" id="cardName"></p>
+                            <p class="ecard-message" id="cardMessage"></p>
+                            <p class="ecard-slogan" id="cardSlogan"></p>
+                        </div>
+                    </div>
+                    <button class="btn-primary" id="downloadCardBtn" onclick="downloadCard()" disabled>
+                        Download My Card
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Constitution Section -->
+    <section id="constitution" class="section constitution-section">
+        <div class="container">
+            <h2 class="section-title">Constitution of India</h2>
+            <div class="constitution-content">
+                <div class="constitution-card">
+                    <h3>Fundamental Right</h3>
+                    <p id="constitutionRight"></p>
+                </div>
+                <div class="constitution-card">
+                    <h3>Fundamental Duty</h3>
+                    <p id="constitutionDuty"></p>
+                </div>
+                <div class="constitution-card">
+                    <h3>Constitution Quote</h3>
+                    <p id="constitutionQuote"></p>
+                </div>
+            </div>
+            <button class="btn-secondary" onclick="updateConstitutionContent()">Refresh Content</button>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="section quiz-section">
+        <div class="container">
+            <h2 class="section-title">Republic Day Quiz </h2>
+            
+            <!-- Quiz Start Screen -->
+            <div id="quizStartScreen" class="quiz-start-screen">
+                <div class="quiz-instructions">
+                    <h3>Quiz Instructions</h3>
+                    <ul>
+                        <li>15 MCQ questions</li>
+                        <li>One question at a time</li>
+                        <li>4 options per question</li>
+                        <li>No negative marking</li>
+                    </ul>
+                    <button class="btn-primary" onclick="startQuiz()">Start Quiz</button>
+                </div>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quizContainer" class="quiz-container" style="display: none;">
+                <div class="quiz-progress">
+                    <span id="progressText">Question 1 / 15</span>
+                </div>
+                
+                <div class="question-container">
+                    <h3 id="questionText" class="question-text"></h3>
+                    <div class="options-container" id="optionsContainer">
+                        <!-- Options will be generated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="quiz-controls">
+                    <button id="nextBtn" class="btn-primary" onclick="nextQuestion()" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- Quiz Result Screen -->
+            <div id="quizResult" class="quiz-result" style="display: none;">
+                <h3>Quiz Completed!</h3>
+                <div class="result-score">
+                    <p class="score-text">Your Score: <span id="finalScore"></span></p>
+                    <p class="percentage-text"><span id="percentageText"></span></p>
+                </div>
+                <div class="result-feedback">
+                    <p id="feedbackMessage" class="feedback-message"></p>
+                </div>
+
+                <!-- Certificate Form -->
+                <div id="certificateForm" class="certificate-form" style="display: none;">
+                    <h4>Generate Your Certificate</h4>
+                    <div class="form-group">
+                        <label for="certificateName">Enter Your Name *</label>
+                        <input type="text" id="certificateName" placeholder="Enter your name" required>
+                    </div>
+                    <button class="btn-primary" onclick="generateCertificate()">Generate Certificate</button>
+                </div>
+            </div>
+
+            <!-- Certificate Display -->
+            <div id="certificateWrapper" class="certificate-wrapper" style="display: none;">
+                <div id="certificateContent" class="certificate-content">
+                    <div class="certificate-watermark"></div>
+                    <h1 class="certificate-title">Certificate of Participation</h1>
+                    <h2 class="certificate-subtitle">Republic Day Quiz </h2>
+                    <p class="certificate-text">This is to certify that</p>
+                    <p class="certificate-name" id="certificateNameDisplay"></p>
+                    <p class="certificate-text">has successfully completed the Republic Day Quiz with a score of</p>
+                    <p class="certificate-score" id="certificateScoreDisplay"></p>
+                    <p class="certificate-date" id="certificateDateDisplay"></p>
+                    <p class="certificate-message">Keep learning and celebrating the spirit of India!</p>
+                    <div class="certificate-signature">
+                        <p>Jai Hind!</p>
+                    </div>
+                </div>
+                <button class="btn-primary" onclick="downloadCertificate()">Download Certificate</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">About</h2>
+            <div class="about-content">
+                <div class="about-card">
+                    <h3>About Developer</h3>
+                    <p><strong>Name:</strong> Mayank Gautam</p>
+                    <p><strong>College:</strong> Chandigarh University Uttar Pradesh</p>
+                    <p>Passionate about technology and nation-building, I believe in using digital innovation to celebrate and preserve our rich heritage and values.</p>
+                    <p style="margin-top: 15px;">
+                        <a href="https://github.com/python008-dev" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #333; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.3s;">
+                            🔗 GitHub Profile
+                        </a>
+                    </p>
+                </div>
+                <div class="about-card">
+                    <h3>About Project</h3>
+                    <p>This project is a digital tribute to India's freedom, Constitution, and values. It represents the spirit of Republic Day through interactive experiences that connect patriotism with modern technology.</p>
+                    <p>Created with respect and dedication, this website aims to educate, inspire, and celebrate the journey of India from independence to becoming the world's largest democracy.</p>
+                    <p><strong>Message:</strong> "This project is a tribute to India's freedom, Constitution, and values."</p>
+                </div>
+                <div class="about-card">
+                    <h3>Technologies Used</h3>
+                    <ul class="tech-list">
+                        <li>HTML5 - Semantic structure and website structure</li>
+                        <li>CSS3 - Modern styling and animations</li>
+                        <li>JavaScript - Interactive features</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Mayank Gautam | Built with respect and patriotism</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
