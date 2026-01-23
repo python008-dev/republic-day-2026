@@ -6,6 +6,7 @@
     <title>Republic Day of India  | Celebrating the Spirit of India</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
 </head>
 <body>
     <!-- Fixed Navigation Bar -->
@@ -229,6 +230,7 @@
                             <option value="Satyameva Jayate">Satyameva Jayate</option>
                         </select>
                     </div>
+                    <!-- QR locked to site; no input shown to users -->
                     <button class="btn-primary" id="generateCardBtn" onclick="generateCard()">
                         Generate Card
                     </button>
@@ -243,12 +245,35 @@
                             </div>
                             <p class="ecard-name" id="cardName"></p>
                             <p class="ecard-message" id="cardMessage"></p>
+                            <p class="ecard-quote" id="cardQuote"></p>
                             <p class="ecard-slogan" id="cardSlogan"></p>
+                            <div class="ecard-qr" id="ecardQR" style="display:none;">
+                                <img alt="QR Code" id="ecardQRImg" src="" />
+                            </div>
                         </div>
                     </div>
-                    <button class="btn-primary" id="downloadCardBtn" onclick="downloadCard()" disabled>
-                        Download My Card
-                    </button>
+                    <div class="ecard-action-buttons">
+                        <button class="btn-primary" id="downloadCardBtn" onclick="downloadCard()" disabled>
+                            📥 Download My Card
+                        </button>
+                    </div>
+                    <div class="ecard-share-buttons" style="display: none;">
+                        <h3>Share Your Card</h3>
+                        <div class="share-options">
+                            <button class="share-btn share-whatsapp" onclick="shareOnWhatsApp()" title="Share on WhatsApp">
+                                <span class="share-icon">💬</span>
+                                <span>WhatsApp</span>
+                            </button>
+                            <button class="share-btn share-status" onclick="shareAsStatus()" title="Share as Status">
+                                <span class="share-icon">📱</span>
+                                <span>WhatsApp Status</span>
+                            </button>
+                            <button class="share-btn share-story" onclick="shareAsStory()" title="Share as Story">
+                                <span class="share-icon">✨</span>
+                                <span>Instagram Story</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -272,7 +297,10 @@
                     <p id="constitutionQuote"></p>
                 </div>
             </div>
-            <button class="btn-secondary" onclick="updateConstitutionContent()">Refresh Content</button>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button class="btn-secondary" onclick="updateConstitutionContent()">Refresh Content</button>
+                <button class="btn-primary" onclick="window.open('constitution.html', '_blank')">📖 Read Full Constitution</button>
+            </div>
         </div>
     </section>
 
@@ -364,6 +392,8 @@
                 <div class="about-card">
                     <h3>About Developer</h3>
                     <p><strong>Name:</strong> Mayank Gautam</p>
+                    <p><strong>Age:</strong> 20 yrs</p>
+                    <p><strong>Dist:</strong> Unnao</p>
                     <p><strong>College:</strong> Chandigarh University Uttar Pradesh</p>
                     <p>Passionate about technology and nation-building, I believe in using digital innovation to celebrate and preserve our rich heritage and values.</p>
                     <p style="margin-top: 15px;">

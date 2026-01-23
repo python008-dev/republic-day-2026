@@ -98,7 +98,24 @@ const constitutionQuotes = [
     "We are going to enter into a life of contradictions. In politics we will have equality and in social and economic life we will have inequality. - Dr. B.R. Ambedkar",
     "The Constitution of India is the longest written constitution of any sovereign country in the world.",
     "The Preamble to the Constitution of India is a brief introductory statement that sets out the guiding purpose and principles of the document.",
-    "Justice, Liberty, Equality, and Fraternity - these are the four pillars of our Constitution."
+    "Justice, Liberty, Equality, and Fraternity - these are the four pillars of our Constitution.",
+    "I like the religion that teaches liberty, equality and fraternity. - Dr. B.R. Ambedkar",
+    "The ambition of the greatest man of our nation shall be used to make the nation greater. - Dr. B.R. Ambedkar",
+    "The real pillars of the Constitution are Dharma, Artha, Kama, and Moksha. - Dr. B.R. Ambedkar"
+];
+
+// Patriotic Slogans
+const patrioticSlogans = [
+    "Vande Mataram - I bow to my Mother (India)",
+    "Jai Hind - Victory to India",
+    "Satyameva Jayate - Truth alone triumphs",
+    "Inquilab Zindabad - Long Live the Revolution",
+    "Bharat Mata Ki Jai - Glory to Mother India",
+    "United India, Strong India",
+    "From Many, One - E Pluribus Unum",
+    "One Nation, One People, One Vision",
+    "For the Welfare of All - Sarve Bhavantu Sukhinah",
+    "Democracy is the Soul of India"
 ];
 
 // ====================================
@@ -623,6 +640,7 @@ function generateCard() {
     const userMessage = document.getElementById('userMessage').value.trim();
     const slogan = document.getElementById('sloganSelect').value;
     const downloadBtn = document.getElementById('downloadCardBtn');
+    const shareButtons = document.querySelector('.ecard-share-buttons');
     
     if (!userName) {
         alert('Please enter your name');
@@ -636,6 +654,7 @@ function generateCard() {
     const cardName = document.getElementById('cardName');
     const cardMessage = document.getElementById('cardMessage');
     const cardSlogan = document.getElementById('cardSlogan');
+    const cardQuote = document.getElementById('cardQuote');
     
     // Beautiful greeting messages
     const greetings = [
@@ -647,9 +666,10 @@ function generateCard() {
     ];
     
     const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+    const randomQuote = constitutionQuotes[Math.floor(Math.random() * constitutionQuotes.length)];
     
     if (cardName) {
-        cardName.textContent = `✨ ${userName} ✨`;
+        cardName.textContent = `Republic Day Wishes from ${userName}`;
     }
     
     if (cardMessage) {
@@ -657,7 +677,42 @@ function generateCard() {
     }
     
     if (cardSlogan) {
-        cardSlogan.innerHTML = `<strong>${slogan}</strong> `;
+        cardSlogan.innerHTML = `<strong>${slogan}</strong>`;
+    }
+    
+    if (cardQuote) {
+        cardQuote.textContent = `"${randomQuote}"`;
+    }
+
+    // QR Code: locked to the live site URL (do not allow user edits)
+    try {
+        const qrImgWrapper = document.getElementById('ecardQR');
+        const qrImg = document.getElementById('ecardQRImg');
+        // Fixed live URL provided by user: https://python008-dev.github.io/republic-day-2026/
+        const fixedQR = 'https://python008-dev.github.io/republic-day-2026/';
+        if (qrImg && qrImgWrapper) {
+            // Prefer client-side QR generation (QRious) so the image is a data URL
+            if (typeof QRious !== 'undefined') {
+                try {
+                    const qrInstance = new QRious({ value: fixedQR, size: 150 });
+                    qrImg.src = qrInstance.toDataURL();
+                } catch (err) {
+                    // fallback to external API
+                    qrImg.src = `https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=${encodeURIComponent(fixedQR)}&chld=L|1`;
+                }
+            } else {
+                // fallback if QRious not loaded
+                qrImg.src = `https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=${encodeURIComponent(fixedQR)}&chld=L|1`;
+            }
+            qrImgWrapper.style.display = 'block';
+        }
+    } catch (e) {
+        console.warn('QR generation failed', e);
+    }
+    
+    // Show share buttons
+    if (shareButtons) {
+        shareButtons.style.display = 'flex';
     }
     
     // Enable download button
@@ -678,9 +733,15 @@ function initializeECardChakra() {
         const totalSpokes = 24;
         const anglePerSpoke = 360 / totalSpokes;
         
+        const spokeHeight = 22; // px - reduced to match smaller chakra
         for (let i = 0; i < totalSpokes; i++) {
             const spoke = document.createElement('div');
             spoke.className = 'chakra-spoke-ecard';
+            // ensure pixel dimensions to anchor spoke bottom at center
+            spoke.style.width = '2px';
+            spoke.style.height = spokeHeight + 'px';
+            spoke.style.marginLeft = '-1px';
+            spoke.style.marginTop = `-${spokeHeight}px`; // lift so bottom aligns with center
             spoke.style.transform = `rotate(${i * anglePerSpoke}deg)`;
             chakraContainer.appendChild(spoke);
         }
@@ -689,6 +750,90 @@ function initializeECardChakra() {
 
 // Make it accessible globally
 window.generateCard = generateCard;
+
+// Share Functionality
+// ====================================
+
+async function getCardAsDataURL() {
+    const card = document.getElementById('generatedCard');
+    
+    if (!card) {
+        alert('Please generate a card first');
+        return null;
+    }
+    
+    try {
+        if (typeof html2canvas === 'undefined') {
+            alert('Share feature is loading. Please try again in a moment.');
+            return null;
+        }
+        
+        const canvas = await html2canvas(card, {
+            backgroundColor: '#ffffff',
+            scale: 2,
+            logging: false,
+            useCORS: true
+        });
+        
+        return canvas.toDataURL('image/png');
+    } catch (error) {
+        console.error('Error converting card to image:', error);
+        alert('Error preparing card for sharing. Please try again.');
+        return null;
+    }
+}
+
+async function shareOnWhatsApp() {
+    const userName = document.getElementById('userName').value.trim() || 'User';
+    const cardImage = await getCardAsDataURL();
+    
+    if (!cardImage) return;
+    
+    // Create a link element for download (for the user to share manually)
+    const link = document.createElement('a');
+    link.download = `Republic_Day_Card_${userName.replace(/\s+/g, '_')}.png`;
+    link.href = cardImage;
+    link.click();
+    
+    const text = `Happy Republic Day ${userName}! 🇮🇳 Check out my beautiful Republic Day e-card. Created with pride! #RepublicDay #India #ProudIndian`;
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank');
+}
+
+async function shareAsStory() {
+    const userName = document.getElementById('userName').value.trim() || 'User';
+    const cardImage = await getCardAsDataURL();
+    
+    if (!cardImage) return;
+    
+    // Download the card for sharing to status/story
+    const link = document.createElement('a');
+    link.download = `Republic_Day_${userName}_Story.png`;
+    link.href = cardImage;
+    link.click();
+    
+    alert(`✨ Card downloaded! Now you can:\n1. Open WhatsApp/Instagram\n2. Go to Status or Story\n3. Add the downloaded image\n4. Share with your friends!`);
+}
+
+async function shareAsStatus() {
+    const userName = document.getElementById('userName').value.trim() || 'User';
+    const cardImage = await getCardAsDataURL();
+    
+    if (!cardImage) return;
+    
+    // Download the card for sharing to status
+    const link = document.createElement('a');
+    link.download = `Republic_Day_${userName}_Status.png`;
+    link.href = cardImage;
+    link.click();
+    
+    alert(`✨ Card ready for status!\nNow open WhatsApp:\n1. Go to Status\n2. Tap + button\n3. Add the downloaded image\n4. Share to your contacts!`);
+}
+
+// Make share functions globally accessible
+window.shareOnWhatsApp = shareOnWhatsApp;
+window.shareAsStory = shareAsStory;
+window.shareAsStatus = shareAsStatus;
 
 async function downloadCard() {
     const card = document.getElementById('generatedCard');

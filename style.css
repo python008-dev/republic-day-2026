@@ -730,15 +730,18 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    gap: 2rem;
+    gap: 0;
     margin: 3rem 0;
     min-height: 400px;
+    position: relative;
 }
 
 .flag-pole {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    z-index: 10;
 }
 
 .pole-base {
@@ -764,13 +767,18 @@ body {
 }
 
 .flag-wrapper {
-    position: relative;
-    transform-origin: left center;
+    position: absolute;
+    transform-origin: left top;
+    display: flex;
+    align-items: flex-start;
+    left: 50%;
+    top: 0;
+    transform: translateX(15px) translateY(0);
 }
 
 .flag {
     width: 0;
-    height: 233px;
+    height: 180px;
     display: flex;
     flex-direction: column;
     transition: width 2s ease-in-out;
@@ -778,7 +786,7 @@ body {
 }
 
 .flag.unfurled {
-    width: 350px;
+    width: 280px;
 }
 
 .flag-stripe {
@@ -998,6 +1006,33 @@ body {
     color: var(--text-dark);
 }
 
+.ecard {
+    position: relative;
+    overflow: hidden;
+}
+
+.ecard-qr {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 70px;
+    height: 70px;
+    padding: 4px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ecard-qr img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .ecard-title {
     font-size: 2rem;
     color: var(--text-dark);
@@ -1010,8 +1045,8 @@ body {
 }
 
 .rotating-chakra {
-    width: 80px;
-    height: 80px;
+    width: 64px;
+    height: 64px;
     border: 4px solid #1f4788;
     border-radius: 50%;
     position: relative;
@@ -1024,11 +1059,17 @@ body {
     top: 50%;
     left: 50%;
     width: 2px;
-    height: 100%;
+    height: 22px; /* reduced height to fit inside the smaller chakra */
     background: #1f4788;
-    transform-origin: center;
-    margin-left: -1px;
-    margin-top: -40%;
+    transform-origin: 50% 100%; /* pivot from the center-bottom so spokes radiate outwards */
+    margin: 0;
+    border-radius: 1px;
+    opacity: 0.95;
+}
+
+@keyframes chakraRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .ecard-name {
@@ -1050,6 +1091,100 @@ body {
     font-weight: bold;
     color: var(--dark-green);
     margin-top: 1rem;
+}
+
+.ecard-quote {
+    font-size: 0.95rem;
+    color: #2c3e50;
+    font-style: italic;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1rem;
+    border-left: 3px solid var(--saffron);
+    background: rgba(255, 153, 51, 0.1);
+    border-radius: 4px;
+    line-height: 1.5;
+    max-width: 90%;
+}
+
+.ecard-action-buttons {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.ecard-share-buttons {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ecard-share-buttons h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.share-options {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.share-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    color: var(--text-dark);
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.share-btn .share-icon {
+    font-size: 1.5rem;
+}
+
+.share-whatsapp {
+    border-color: #25D366;
+    color: #25D366;
+}
+
+.share-whatsapp:hover {
+    background: rgba(37, 211, 102, 0.1);
+}
+
+.share-status {
+    border-color: #FF9933;
+    color: #FF9933;
+}
+
+.share-status:hover {
+    background: rgba(255, 153, 51, 0.1);
+}
+
+.share-story {
+    border-color: #E1306C;
+    color: #E1306C;
+}
+
+.share-story:hover {
+    background: rgba(225, 48, 108, 0.1);
 }
 
 /* ====================================
@@ -1602,8 +1737,22 @@ body {
     }
 
     .flag-container {
-        flex-direction: column;
-        align-items: center;
+        position: relative;
+        gap: 0;
+        min-height: 350px;
+    }
+
+    .flag-wrapper {
+        position: absolute;
+        transform-origin: left top;
+        left: 50%;
+        top: 0;
+        transform: translateX(15px) translateY(0);
+        order: auto;
+    }
+
+    .flag-pole {
+        order: auto;
     }
 
     .flag.unfurled {
