@@ -12,7 +12,7 @@ Crafted with care and intention, this website blends **creativity, clarity, and 
 
 ## 👨‍💻 Developer
 
-Developed and maintained by **Mayank**  
+Developed and maintained by **Mayank Gautam**  
 
 A passionate developer driven by **innovation, creativity, and purpose**, committed to building digital experiences that carry meaning beyond code. This project stands as a reflection of both technical expression and respect for India’s constitutional values.
 
