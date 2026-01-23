@@ -52,7 +52,7 @@ const nationalHeroes = [
     {
         name: "Dr. Brijmohan Lall Munjal",
         lifespan: "1923 - 2012",
-        image: "assets/freedom-fighters/gandhi.jpeg",
+        image: "assets/freedom-fighters/dr brijmohanlal munjal.jpeg",
         contribution: "Industrialist and founder of Hero Cycles, which became Hero Honda. He revolutionized Indian manufacturing and automobile industry, creating millions of jobs and contributing to economic development.",
         quote: "Quality is not an act, it is a habit. Success is not final, failure is not fatal.",
         role: "Industrialist, engineer, entrepreneur",
@@ -61,7 +61,7 @@ const nationalHeroes = [
     {
         name: "Dr. Rajendra Prasad",
         lifespan: "1884 - 1963",
-        image: "assets/freedom-fighters/gandhi.jpeg",
+        image: "assets/freedom-fighters/dr rajendra prasad.jpeg",
         contribution: "First President of India and farmer, he promoted agricultural sciences and development. He played a crucial role in shaping modern India's democratic institutions.",
         quote: "Education is the foundation of every society and nation. It is the most important factor in nation building.",
         role: "First President, freedom fighter",
@@ -70,7 +70,7 @@ const nationalHeroes = [
     {
         name: "Dr. Verghese Kurien",
         lifespan: "1921 - 2012",
-        image: "assets/freedom-fighters/gandhi.jpeg",
+        image: "assets/freedom-fighters/dr verghesh kurien.jpeg",
         contribution: "Father of the White Revolution in India. He founded AMUL and transformed India's dairy industry, making it self-sufficient in milk production and improving farmers' livelihoods.",
         quote: "A Cooperative structure along with technology leads to progress. Technology without heart leads to disasters.",
         role: "Engineer, dairy cooperative pioneer",
@@ -97,7 +97,7 @@ const nationalHeroes = [
     {
         name: "Dr. Pyarimohan Mohapatra",
         lifespan: "1931 - 2019",
-        image: "assets/freedom-fighters/gandhi.jpeg",
+        image: "assets/freedom-fighters/dr  pyarimohan mohapatra.jpeg",
         contribution: "Renowned meteorologist and environmental scientist. He contributed significantly to weather forecasting in India and environmental conservation, helping save millions from natural disasters.",
         quote: "Science serves humanity best when it is guided by wisdom and compassion.",
         role: "Meteorologist, environmental scientist",
