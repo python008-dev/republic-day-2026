@@ -31,3 +31,6 @@ Any unauthorized copying, reproduction, modification, or redistribution, whether
 
 The live website is publicly accessible for **viewing and educational appreciation only**.  
 Proper credit must be preserved if the project is referenced in any form.
+
+<img width="770" height="552" alt="image" src="https://github.com/user-attachments/assets/57d7bfc6-8e13-442e-9730-a93e3a1e9717" />
+top performer........
